@@ -1,0 +1,15 @@
+resources:
+  pipelines:
+    pipeline_dab_pipeline:
+      name: dab_pipeline
+      libraries:
+        - glob:
+            include: ../../src/dab/bronze/**
+      schema: ${resources.schemas.my_schema.name}
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${resources.schemas.my_schema.catalog_name}
+      serverless: true
+      root_path: /Workspace/Users/rkhridoyinfo@gmail.com/databricks_asset_bundle/src/dab

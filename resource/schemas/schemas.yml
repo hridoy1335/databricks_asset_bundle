@@ -1,0 +1,10 @@
+resources:
+  schemas:
+    my_schema:
+      catalog_name: ${var.catalog_name}
+      name: ${var.schema_name}
+      comment: 'Schema in custom catalog'
+      grants:
+        - principal: rkhridoyinfo@gmail.com
+          privileges:
+            - MANAGE

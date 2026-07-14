@@ -1,0 +1,17 @@
+# Catalog resource commented out - catalogs typically need to be created via UI
+# or require explicit storage location in AWS
+# 
+# Uncomment and add storage_root if you want to manage catalog via DABs:
+# resources:
+#   catalogs:
+#     my_catalog:
+#       name: ${var.catalog_name}
+#       storage_root: 's3://your-bucket/path/to/catalog'
+#       comment: 'Catalog created by Declarative Automation Bundles'
+#       properties:
+#         purpose: 'development'
+#       grants:
+#         - principal: rkhridoyinfo@gmail.com
+#           privileges:
+#             - USE_CATALOG
+#             - CREATE_SCHEMA

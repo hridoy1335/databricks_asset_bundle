@@ -1,0 +1,48 @@
+bundle:
+  name: dab
+  engine: direct
+  databricks_cli_version: '>= 0.218.0'
+
+include:
+  - src/*.yml
+  - resource/*.yml
+  - resource/jobs/*.yml
+  - resource/schemas/*.yml
+  - resource/catalogs/*.yml
+  - resource/pipelines/*.yml
+
+variables:
+  catalog_name:
+    default: "dab"
+  schema_name:
+    default: "bronze"
+  environment:
+    default: "dev"
+
+permissions:
+  - user_name: rkhridoyinfo@gmail.com
+    level: CAN_MANAGE
+
+targets:
+  dev:
+    mode: development
+    presets:
+      name_prefix: (dev_${workspace.current_user.short_name})
+    default: true
+    workspace:
+      host: https://dbc-f5635c5f-848f.cloud.databricks.com/
+    variables:
+      catalog_name: "dab"
+      schema_name: "bronze"
+      environment: "dev"
+    
+  qa:
+    mode: production
+    default: false
+    workspace:
+      host: ${DATABRICKS_HOST_QA}
+      root_path: /Workspace/Users/rkhridoyinfo@gmail.com/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog_name: "dab_qa"
+      schema_name: "bronze"
+      environment: "qa"

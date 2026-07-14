@@ -1,2 +1,1 @@
 # databricks_asset_bundle
-databricks_asset_bundle

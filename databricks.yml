@@ -40,7 +40,7 @@ targets:
     mode: production
     default: false
     workspace:
-      host: ${DATABRICKS_HOST_QA}
+      host: https://dbc-565e2d8b-e807.cloud.databricks.com/
       root_path: /Workspace/Users/rkhridoyinfo@gmail.com/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog_name: "dab_qa"

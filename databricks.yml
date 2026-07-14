@@ -22,12 +22,14 @@ variables:
 permissions:
   - user_name: rkhridoyinfo@gmail.com
     level: CAN_MANAGE
+  - user_name: hridoykinfo@gmail.com
+    level: CAN_MANAGE
 
 targets:
   dev:
     mode: development
     presets:
-      name_prefix: (dev_${workspace.current_user.short_name})
+      name_prefix: "dev_${workspace.current_user.short_name}"
     default: true
     workspace:
       host: https://dbc-f5635c5f-848f.cloud.databricks.com/

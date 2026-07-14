@@ -1,0 +1,61 @@
+name: Databricks Asset Bundle CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Validate Bundle
+    runs-on: ubuntu-latest
+
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_QA }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN_QA }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: databricks/setup-cli@main
+
+      - name: Validate QA Bundle
+        run: databricks bundle validate -t qa
+
+  deploy_qa:
+    name: Deploy to QA
+    runs-on: ubuntu-latest
+    needs: validate
+
+    environment: qa
+
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_QA }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN_QA }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: databricks/setup-cli@main
+
+      - name: Deploy QA
+        run: databricks bundle deploy -t qa
+
+  deploy_prod:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: deploy_qa
+
+    environment: production
+
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_PROD }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN_PROD }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: databricks/setup-cli@main
+
+      - name: Deploy Production
+        run: databricks bundle deploy -t prod

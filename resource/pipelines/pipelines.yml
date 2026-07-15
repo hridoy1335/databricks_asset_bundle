@@ -9,7 +9,7 @@ resources:
             include: ../../src/dab/silver/**
       schema: ${resources.schemas.my_schema.name}
       continuous: false
-      development: true
+      development: false
       photon: true
       edition: ADVANCED
       channel: CURRENT

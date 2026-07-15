@@ -46,4 +46,5 @@ targets:
     variables:
       catalog_name: dab_qa
       schema_name: bronze
+      environment: qa
       sample_rate: 0.3

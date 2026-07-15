@@ -20,4 +20,4 @@ resources:
         metadata_file_path: /Workspace/Users/rkhridoyinfo@gmail.com/.bundle/dab/dev/state/metadata.json
       tags:
         dev: rkhridoyinfo
-      root_path: /Workspace/Users/rkhridoyinfo@gmail.com/databricks_asset_bundle/src/dab
+      root_path: /Workspace/Users/rkhridoyinfo@gmail.com/.bundle/src/dab

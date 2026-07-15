@@ -8,6 +8,8 @@ resources:
         - glob:
             include: ../../src/dab/silver/**
       schema: ${resources.schemas.my_schema.name}
+      configuration:
+        sample_rate: ${var.sample_rate}
       continuous: false
       development: false
       photon: true

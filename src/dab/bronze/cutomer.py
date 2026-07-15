@@ -6,7 +6,7 @@ from pyspark.sql.functions import *
 
 
 @dp.table(
-    name="dab.bronze.customer"
+    name="customer"
 )
 def bronze():
     return (

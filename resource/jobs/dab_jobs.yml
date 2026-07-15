@@ -6,6 +6,8 @@ resources:
         - task_key: run_pipeline
           pipeline_task:
             pipeline_id: ${resources.pipelines.pipeline_dab_pipeline.id}
+      tags:
+        dev: rkhridoyinfo
       queue:
         enabled: true
       performance_target: PERFORMANCE_OPTIMIZED

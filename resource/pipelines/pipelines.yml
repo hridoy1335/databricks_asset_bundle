@@ -1,15 +1,23 @@
 resources:
   pipelines:
     pipeline_dab_pipeline:
-      name: dab_pipeline
+      name: (dev_rkhridoyinfo)dab_pipeline
       libraries:
         - glob:
             include: ../../src/dab/bronze/**
+        - glob:
+            include: ../../src/dab/silver/**
       schema: ${resources.schemas.my_schema.name}
       continuous: false
-      development: false
+      development: true
       photon: true
+      edition: ADVANCED
       channel: CURRENT
       catalog: ${resources.schemas.my_schema.catalog_name}
       serverless: true
+      deployment:
+        kind: BUNDLE
+        metadata_file_path: /Workspace/Users/rkhridoyinfo@gmail.com/.bundle/dab/dev/state/metadata.json
+      tags:
+        dev: rkhridoyinfo
       root_path: /Workspace/Users/rkhridoyinfo@gmail.com/databricks_asset_bundle/src/dab

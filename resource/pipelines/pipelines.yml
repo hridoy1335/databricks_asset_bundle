@@ -11,7 +11,7 @@ resources:
       configuration:
         sample_rate: ${var.sample_rate}
       continuous: false
-      development: true
+      development: false
       photon: true
       edition: ADVANCED
       channel: CURRENT
@@ -22,4 +22,4 @@ resources:
         metadata_file_path: /Workspace/Users/rkhridoyinfo@gmail.com/.bundle/dab/dev/state/metadata.json
       tags:
         dev: rkhridoyinfo
-      root_path: ../../src/dab
+      root_path: /Workspace/Users/rkhridoyinfo@gmail.com/.bundle/src/dab
